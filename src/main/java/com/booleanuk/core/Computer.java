@@ -20,18 +20,15 @@ public class Computer {
         this.psu.turnOn();
     }
 
-    public void installGame(String gameTitle) {
-        Game game = new Game(gameTitle);
+    public void installGame(Game game) {
         this.installedGames.add(game);
     }
 
-    public String playGame(String gameTitle) {
-        for (Game g : this.installedGames) {
-            if (g.name.equals(gameTitle)) {
-                return g.start();
+    public String playGame(Game game) {
+        int gameIndex = installedGames.indexOf(game);
+            if (gameIndex >= 0) {
+                return installedGames.get(gameIndex).start();
             }
-        }
-
         return "Game not installed";
     }
 }
