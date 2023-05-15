@@ -1,7 +1,7 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
 public class Game {
-    public String name;
+    private final String name;
 
     public Game(String name) {
         this.name = name;
