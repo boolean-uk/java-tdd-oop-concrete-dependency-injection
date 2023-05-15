@@ -11,7 +11,6 @@ class ComputerTest {
         PowerSupply myPsu = new PowerSupply();
         Computer myPc = new Computer(myPsu);
         myPc.turnOn();
-
         Assertions.assertTrue(myPsu.isOn);
     }
 
