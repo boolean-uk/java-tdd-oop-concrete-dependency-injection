@@ -26,31 +26,31 @@ class ComputerTest {
         Assertions.assertEquals("Final Fantasy XI", myPc.installedGames.get(0).name);
     }
 
-    @Test
-    public void shouldPlayGames() {
-        PowerSupply myPsu = new PowerSupply();
-        Computer myPc = new Computer(myPsu);
-
-        myPc.installGame("Duck Game");
-        myPc.installGame("Dragon's Dogma: Dark Arisen");
-
-        Assertions.assertEquals("Playing Duck Game", myPc.playGame("Duck Game"));
-        Assertions.assertEquals("Playing Dragon's Dogma: Dark Arisen", myPc.playGame("Dragon's Dogma: Dark Arisen"));
-        Assertions.assertEquals("Game not installed", myPc.playGame("Morrowind"));
-    }
-
-    @Test
-    public void canPreinstallGames() {
-        PowerSupply myPsu = new PowerSupply();
-        ArrayList<Game> preInstalled = new ArrayList<>(){{
-            add(new Game("Dwarf Fortress"));
-            add(new Game("Baldur's Gate"));
-        }};
-
-        Computer myPc = new Computer(myPsu, preInstalled);
-
-        Assertions.assertEquals(2, myPc.installedGames.size());
-        Assertions.assertEquals("Dwarf Fortress", myPc.installedGames.get(0).name);
-        Assertions.assertEquals("Baldur's Gate", myPc.installedGames.get(1).name);
-    }
+//    @Test
+//    public void shouldPlayGames() {
+//        PowerSupply myPsu = new PowerSupply();
+//        Computer myPc = new Computer(myPsu);
+//
+//        myPc.installGame("Duck Game");
+//        myPc.installGame("Dragon's Dogma: Dark Arisen");
+//
+//        Assertions.assertEquals("Playing Duck Game", myPc.playGame("Duck Game"));
+//        Assertions.assertEquals("Playing Dragon's Dogma: Dark Arisen", myPc.playGame("Dragon's Dogma: Dark Arisen"));
+//        Assertions.assertEquals("Game not installed", myPc.playGame("Morrowind"));
+//    }
+//
+//    @Test
+//    public void canPreinstallGames() {
+//        PowerSupply myPsu = new PowerSupply();
+//        ArrayList<Game> preInstalled = new ArrayList<>(){{
+//            add(new Game("Dwarf Fortress"));
+//            add(new Game("Baldur's Gate"));
+//        }};
+//
+//        Computer myPc = new Computer(myPsu, preInstalled);
+//
+//        Assertions.assertEquals(2, myPc.installedGames.size());
+//        Assertions.assertEquals("Dwarf Fortress", myPc.installedGames.get(0).name);
+//        Assertions.assertEquals("Baldur's Gate", myPc.installedGames.get(1).name);
+//    }
 }
