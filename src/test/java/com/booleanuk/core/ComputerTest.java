@@ -22,8 +22,8 @@ class ComputerTest {
 
         myPc.installGame("Final Fantasy XI");
 
-        Assertions.assertEquals(1, myPc.installedGames.size());
-        Assertions.assertEquals("Final Fantasy XI", myPc.installedGames.get(0).name);
+        Assertions.assertEquals(1, myPc.getInstalledGames().size());
+        Assertions.assertEquals("Final Fantasy XI", myPc.getInstalledGames().get(0).name);
     }
 
     @Test
@@ -49,8 +49,8 @@ class ComputerTest {
 
         Computer myPc = new Computer(myPsu, preInstalled);
 
-        Assertions.assertEquals(2, myPc.installedGames.size());
-        Assertions.assertEquals("Dwarf Fortress", myPc.installedGames.get(0).name);
-        Assertions.assertEquals("Baldur's Gate", myPc.installedGames.get(1).name);
+        Assertions.assertEquals(2, myPc.getInstalledGames().size());
+        Assertions.assertEquals("Dwarf Fortress", myPc.getInstalledGames().get(0).name);
+        Assertions.assertEquals("Baldur's Gate", myPc.getInstalledGames().get(1).name);
     }
 }
