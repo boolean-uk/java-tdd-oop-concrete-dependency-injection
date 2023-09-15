@@ -14,16 +14,15 @@ public class Computer {
 
     public Computer( PowerSupply psu, ArrayList<Game> installedGames) {
         this.psu = psu;
-        this.installedGames = installedGames;
+        this.installedGames.addAll(installedGames);
     }
 
     public void turnOn() {
         psu.turnOn();
     }
 
-    public void installGame(String newGame) {
-        Game game = new Game(newGame);
-        this.installedGames.add(game);
+    public void installGame(Game newGame) {
+        this.installedGames.add(newGame);
     }
 
     public String playGame(String game) {
