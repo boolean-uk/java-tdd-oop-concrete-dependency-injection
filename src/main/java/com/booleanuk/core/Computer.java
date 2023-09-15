@@ -5,10 +5,16 @@ import java.util.ArrayList;
 public class Computer {
     private ArrayList<Game> installedGames = new ArrayList<>();
     PowerSupply powerSupply;
+    Game game;
 
     public Computer(PowerSupply powerSupply, ArrayList<Game> installedGames) {
         this.powerSupply = powerSupply;
         this.installedGames = installedGames;
+    }
+
+    public Computer(PowerSupply psu, Game gm) {
+        this.powerSupply = psu;
+        this.game = gm;
     }
 
     public ArrayList<Game> getInstalledGames() {
