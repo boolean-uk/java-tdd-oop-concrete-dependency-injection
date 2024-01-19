@@ -10,4 +10,8 @@ public class Game {
     public String start() {
         return "Playing " + this.name;
     }
+
+    public String getName() {
+        return name;
+    }
 }
