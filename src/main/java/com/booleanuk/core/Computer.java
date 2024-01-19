@@ -13,7 +13,7 @@ public class Computer {
 
     public Computer(PowerSupply psu, ArrayList<Game> preInstalledGames) {
         this.psu = psu;
-        this.installedGames.addAll(preInstalledGames);
+        this.installedGames = preInstalledGames;
     }
 
     public void turnOn() {
