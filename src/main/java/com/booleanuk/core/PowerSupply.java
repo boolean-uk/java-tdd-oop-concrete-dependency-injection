@@ -1,7 +1,10 @@
 package com.booleanuk.core;
 
 public class PowerSupply {
-    public boolean isOn = false;
+    private boolean isOn = false;
+    public boolean getIsOn(){
+        return isOn;
+    }
 
     public void turnOn() {
         this.isOn = true;
