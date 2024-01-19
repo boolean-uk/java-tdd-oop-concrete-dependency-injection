@@ -17,8 +17,7 @@ public class Computer {
         powerSupply.turnOn();
     }
 
-    public void installGame(String gameTitel) {
-        Game game = new Game(gameTitel);
+    public void installGame(Game game) {
         this.installedGames.add(game);
     }
 
