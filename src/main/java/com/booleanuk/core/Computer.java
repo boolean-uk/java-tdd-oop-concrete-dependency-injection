@@ -15,7 +15,7 @@ public class Computer {
         this.psu = myPsu;
     }
     public void turnOn() {
-        psu.turnOn();
+        this.psu.turnOn();
     }
 
     public void installGame(String gameTitle) {
