@@ -19,14 +19,13 @@ public class Computer {
         this.psu.turnOn();
     }
 
-    public void installGame(String gameName) {
-        Game game = new Game(gameName);
+    public void installGame(Game game) {
         this.installedGames.add(game);
     }
 
-    public String playGame(String gameName) {
+    public String playGame(Game game) {
         for (Game g : this.installedGames) {
-            if (g.name.equals(gameName)) {
+            if (g.name.equals(game.name)) {
                 return g.start();
             }
         }
