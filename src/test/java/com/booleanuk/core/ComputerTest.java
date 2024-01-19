@@ -20,37 +20,42 @@ class ComputerTest {
         PowerSupply myPsu = new PowerSupply();
         Computer myPc = new Computer(myPsu);
 
-        myPc.installGame("Final Fantasy XI");
+        Game game = new Game("Final Fantasy XI");
+        myPc.installGame(game);
 
         Assertions.assertEquals(1, myPc.installedGames.size());
-        Assertions.assertEquals("Final Fantasy XI", myPc.installedGames.get(0).name);
+        Assertions.assertEquals(game, myPc.installedGames.get(0));
     }
 
     @Test
     public void shouldPlayGames() {
         PowerSupply myPsu = new PowerSupply();
         Computer myPc = new Computer(myPsu);
+        Game duckGame = new Game("Duck Game");
+        Game dragonsDogmaGame = new Game("Dragon's Dogma: Dark Arisen");
+        myPc.installGame(duckGame);
 
-        myPc.installGame("Duck Game");
-        myPc.installGame("Dragon's Dogma: Dark Arisen");
+        myPc.installGame(dragonsDogmaGame);
 
-        Assertions.assertEquals("Playing Duck Game", myPc.playGame("Duck Game"));
-        Assertions.assertEquals("Playing Dragon's Dogma: Dark Arisen", myPc.playGame("Dragon's Dogma: Dark Arisen"));
-        Assertions.assertEquals("Game not installed", myPc.playGame("Morrowind"));
+        Assertions.assertEquals("Playing Duck Game", myPc.playGame(duckGame));
+        Assertions.assertEquals("Playing Dragon's Dogma: Dark Arisen", myPc.playGame(dragonsDogmaGame));
+        Assertions.assertEquals("Game not installed", myPc.playGame(new Game("Morrowind")));
     }
 
     @Test
     public void canPreinstallGames() {
         PowerSupply myPsu = new PowerSupply();
+        Game dwarfFortress = new Game("Dwarf Fortress");
+        Game baldursGate = new Game("Baldur's Gate");
         ArrayList<Game> preInstalled = new ArrayList<>(){{
-            add(new Game("Dwarf Fortress"));
-            add(new Game("Baldur's Gate"));
+            add(dwarfFortress);
+            add(baldursGate);
         }};
 
         Computer myPc = new Computer(myPsu, preInstalled);
 
         Assertions.assertEquals(2, myPc.installedGames.size());
-        Assertions.assertEquals("Dwarf Fortress", myPc.installedGames.get(0).name);
-        Assertions.assertEquals("Baldur's Gate", myPc.installedGames.get(1).name);
+        Assertions.assertEquals(dwarfFortress, myPc.installedGames.get(0));
+        Assertions.assertEquals(baldursGate, myPc.installedGames.get(1));
     }
 }
