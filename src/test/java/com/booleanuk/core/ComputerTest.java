@@ -8,28 +8,25 @@ import java.util.ArrayList;
 class ComputerTest {
     @Test
     public void shouldTurnOn() {
-        PowerSupply myPsu = new PowerSupply();
-        Computer myPc = new Computer(myPsu);
+        Computer myPc = new Computer();
         myPc.turnOn();
 
-        Assertions.assertTrue(myPsu.isOn);
+        Assertions.assertTrue(myPc.getPowerSupply().isOn);
     }
 
     @Test
     public void shouldInstallGames() {
-        PowerSupply myPsu = new PowerSupply();
-        Computer myPc = new Computer(myPsu);
+        Computer myPc = new Computer();
 
         myPc.installGame("Final Fantasy XI");
 
         Assertions.assertEquals(1, myPc.installedGames.size());
-        Assertions.assertEquals("Final Fantasy XI", myPc.installedGames.get(0).name);
+        Assertions.assertEquals("Final Fantasy XI", myPc.installedGames.get(0).getName());
     }
 
     @Test
     public void shouldPlayGames() {
-        PowerSupply myPsu = new PowerSupply();
-        Computer myPc = new Computer(myPsu);
+        Computer myPc = new Computer();
 
         myPc.installGame("Duck Game");
         myPc.installGame("Dragon's Dogma: Dark Arisen");
@@ -41,16 +38,16 @@ class ComputerTest {
 
     @Test
     public void canPreinstallGames() {
-        PowerSupply myPsu = new PowerSupply();
+        PowerSupply powerSupply = new PowerSupply();
         ArrayList<Game> preInstalled = new ArrayList<>(){{
             add(new Game("Dwarf Fortress"));
             add(new Game("Baldur's Gate"));
         }};
+        Computer myPc = new Computer(powerSupply, preInstalled);
 
-        Computer myPc = new Computer(myPsu, preInstalled);
 
         Assertions.assertEquals(2, myPc.installedGames.size());
-        Assertions.assertEquals("Dwarf Fortress", myPc.installedGames.get(0).name);
-        Assertions.assertEquals("Baldur's Gate", myPc.installedGames.get(1).name);
+        Assertions.assertEquals("Dwarf Fortress", myPc.installedGames.get(0).getName());
+        Assertions.assertEquals("Baldur's Gate", myPc.installedGames.get(1).getName());
     }
 }
