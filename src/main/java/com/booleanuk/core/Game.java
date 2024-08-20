@@ -1,7 +1,7 @@
 package com.booleanuk.core;
 
 public class Game {
-    public String name;
+    private final String name;
 
     public Game(String name) {
         this.name = name;
@@ -9,5 +9,9 @@ public class Game {
 
     public String start() {
         return "Playing " + this.name;
+    }
+
+    public String getName() {
+        return name;
     }
 }
