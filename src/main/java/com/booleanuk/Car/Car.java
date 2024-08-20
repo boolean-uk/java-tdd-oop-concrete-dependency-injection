@@ -2,7 +2,7 @@ package com.booleanuk.Car;
 
 public class Car {
 	public void accelerate(){
-		Engine engine = Engine.getInstance();
+		Engine engine = Engine.getInstance(); //singleton test
 		engine.injectFuel();
 		engine.ignite();
 	}
