@@ -4,9 +4,13 @@ import java.util.ArrayList;
 
 public class Computer {
     public ArrayList<Game> installedGames = new ArrayList<>();
+    PowerSupply psu;
+
+    Computer(PowerSupply psu){
+        this.psu = psu;
+    }
 
     public void turnOn() {
-        PowerSupply psu = new PowerSupply();
         psu.turnOn();
     }
 

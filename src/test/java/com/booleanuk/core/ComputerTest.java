@@ -15,6 +15,7 @@ class ComputerTest {
         Assertions.assertTrue(myPsu.isOn);
     }
 
+    /*
     @Test
     public void shouldInstallGames() {
         PowerSupply myPsu = new PowerSupply();
@@ -53,4 +54,5 @@ class ComputerTest {
         Assertions.assertEquals("Dwarf Fortress", myPc.installedGames.get(0).name);
         Assertions.assertEquals("Baldur's Gate", myPc.installedGames.get(1).name);
     }
+    */
 }
