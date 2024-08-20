@@ -39,7 +39,6 @@ class ComputerTest {
         Assertions.assertEquals("Game not installed", myPc.playGame("Morrowind"));
     }
 
-    /*
     @Test
     public void canPreinstallGames() {
         PowerSupply myPsu = new PowerSupply();
@@ -54,5 +53,4 @@ class ComputerTest {
         Assertions.assertEquals("Dwarf Fortress", myPc.installedGames.get(0).name);
         Assertions.assertEquals("Baldur's Gate", myPc.installedGames.get(1).name);
     }
-    */
 }
