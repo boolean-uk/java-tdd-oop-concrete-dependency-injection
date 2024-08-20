@@ -19,9 +19,9 @@ public class Computer {
         this.installedGames.add(game);
     }
 
-    public String playGame() {
+    public String playGame(String gameName) {
         for (Game g : this.installedGames) {
-            if (g.name.equals("Morrowind")) {
+            if (g.name.equals(gameName)) {
                 return g.start();
             }
         }
