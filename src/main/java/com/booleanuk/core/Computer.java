@@ -10,6 +10,11 @@ public class Computer {
         this.psu = psu;
     }
 
+    Computer(PowerSupply psu, ArrayList<Game> games){
+        this.psu = psu;
+        this.installedGames.addAll(games);
+    }
+
     public void turnOn() {
         psu.turnOn();
     }
