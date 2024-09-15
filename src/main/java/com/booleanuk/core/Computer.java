@@ -3,25 +3,39 @@ package com.booleanuk.core;
 import java.util.ArrayList;
 
 public class Computer {
-    public ArrayList<Game> installedGames = new ArrayList<>();
+    private PowerSupply psu;
+    private ArrayList<Game> installedGames = new ArrayList<>();
+
+    public Computer(PowerSupply psu) {
+        this.psu = psu;
+    }
+
+    public Computer(PowerSupply psu, ArrayList<Game> preInstalled) {
+        this.psu = psu;
+        this.installedGames = preInstalled;
+    }
 
     public void turnOn() {
-        PowerSupply psu = new PowerSupply();
-        psu.turnOn();
+        this.psu.turnOn();
     }
 
-    public void installGame() {
-        Game game = new Game("Morrowind");
-        this.installedGames.add(game);
+    public void installGame(String name) {
+        this.installedGames.add(new Game(name));
     }
 
-    public String playGame() {
+    public String playGame(String name) {
         for (Game g : this.installedGames) {
-            if (g.name.equals("Morrowind")) {
+            if (g.name.equals(name)) {
                 return g.start();
             }
         }
 
         return "Game not installed";
+    }
+    public int getNumberOfInstalledGames() {
+        return this.installedGames.size();
+    }
+    public ArrayList<Game> getInstalledGames() {
+        return installedGames;
     }
 }
