@@ -1,10 +1,10 @@
-package com.booleanuk.core;
+package com.booleanuk.extensions;
 
 import java.util.ArrayList;
 
 public class Computer {
-    public ArrayList<Game> installedGames = new ArrayList<>();
-    PowerSupply psu;
+    private ArrayList<Game> installedGames = new ArrayList<>();
+    private final PowerSupply psu;
 
     public Computer(PowerSupply psu){
         this.psu = psu;
@@ -15,24 +15,36 @@ public class Computer {
         this.installedGames = preInstalledGames;
     }
 
+
+
     public void turnOn() {
         psu.turnOn();
     }
 
 
 
-    public void installGame(String name) {
-        Game game = new Game(name);
+    public void installGame(Game game) {
         this.installedGames.add(game);
     }
 
     public String playGame(String name) {
         for (Game g : this.installedGames) {
-            if (g.name.equals(name)) {
+            if (g.getName().equals(name)) {
                 return g.start();
             }
         }
 
         return "Game not installed";
     }
-}
+
+    public int numberInstalledGames(){
+        return installedGames.size();
+    }
+
+    public boolean isGameInstalled(Game game){
+        return installedGames.stream()
+                .anyMatch(g -> g.getName().equals(game.getName()));
+    }
+
+    }
+
