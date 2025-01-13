@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Computer {
     public ArrayList<Game> installedGames = new ArrayList<>();
-    public Game game;
     public PowerSupply powerSupply;
 
     public Computer(PowerSupply powerSupply) {
@@ -20,15 +19,13 @@ public class Computer {
         powerSupply.turnOn();
     }
 
-    public void installGame(String gameName) {
-        game = new Game(gameName);
+    public void installGame(Game game) {
         installedGames.add(game);
-        String test = "testM";
     }
 
-    public String playGame(String gameName) {
+    public String playGame(Game game) {
         for (Game g : this.installedGames) {
-            if (g.name.equals(gameName)) {
+            if (g.name.equals(game.name)) {
                 return g.start();
             }
         }
