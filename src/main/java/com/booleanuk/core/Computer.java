@@ -4,22 +4,30 @@ import java.util.ArrayList;
 
 public class Computer {
     public ArrayList<Game> installedGames = new ArrayList<>();
+    public PowerSupply psu;
+
+    // Constructor without preinstalled games
+    public Computer(PowerSupply psu){
+        this.psu = psu;
+    }
+
+    // Constructor with preinstalled games
+    public Computer(PowerSupply psu, ArrayList<Game> preInstalledGames){
+        this.psu = psu;
+        this.installedGames = preInstalledGames;
+    }
 
     public void turnOn() {
-        PowerSupply psu = new PowerSupply();
-        psu.turnOn();
+        this.psu.turnOn();
     }
 
-    public void installGame() {
-        Game game = new Game("Morrowind");
-        this.installedGames.add(game);
+    public void installGame(Game newGame) {
+        this.installedGames.add(newGame);
     }
 
-    public String playGame() {
-        for (Game g : this.installedGames) {
-            if (g.name.equals("Morrowind")) {
-                return g.start();
-            }
+    public String playGame(Game gameToPlay) {
+        if(this.installedGames.contains(gameToPlay)){
+            return gameToPlay.start();
         }
 
         return "Game not installed";
