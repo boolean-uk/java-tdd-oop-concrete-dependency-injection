@@ -1,23 +1,32 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Computer {
-    public ArrayList<Game> installedGames = new ArrayList<>();
+    public List<Game> installedGames = new ArrayList<>();
+    private PowerSupply psu;
 
-    public void turnOn() {
-        PowerSupply psu = new PowerSupply();
-        psu.turnOn();
+    public Computer(PowerSupply psu) {
+        this.psu = psu;
     }
 
-    public void installGame() {
-        Game game = new Game("Morrowind");
+    public Computer(PowerSupply psu, List<Game> preInstalled) {
+        this.psu = psu;
+        this.installedGames = preInstalled;
+    }
+
+    public void turnOn() {
+        this.psu.turnOn();
+    }
+
+    public void installGame(Game game) {
         this.installedGames.add(game);
     }
 
-    public String playGame() {
+    public String playGame(String gameName) {
         for (Game g : this.installedGames) {
-            if (g.name.equals("Morrowind")) {
+            if (g.name.equals(gameName)) {
                 return g.start();
             }
         }
