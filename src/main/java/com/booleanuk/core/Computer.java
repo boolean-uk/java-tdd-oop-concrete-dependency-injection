@@ -5,19 +5,30 @@ import java.util.ArrayList;
 public class Computer {
     public ArrayList<Game> installedGames = new ArrayList<>();
 
+    PowerSupply psu;
+
+    public Computer(PowerSupply psu){
+        this.psu = psu;
+    }
+
+    public Computer(PowerSupply psu, ArrayList<Game> installedGames){
+        this.psu = psu;
+        this.installedGames = installedGames;
+    }
+
     public void turnOn() {
-        PowerSupply psu = new PowerSupply();
+
         psu.turnOn();
     }
 
-    public void installGame() {
-        Game game = new Game("Morrowind");
+    public void installGame(Game game) {
+
         this.installedGames.add(game);
     }
 
-    public String playGame() {
+    public String playGame(String game) {
         for (Game g : this.installedGames) {
-            if (g.name.equals("Morrowind")) {
+            if (g.name.equals(game)) {
                 return g.start();
             }
         }
