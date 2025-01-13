@@ -26,12 +26,12 @@ public class Computer {
         this.installedGames.add(game);
     }
 
-    public String playGame(String game) {
-        for (Game g : this.installedGames) {
-            if (g.name.equals(game)) {
-                return g.start();
+    public String playGame(Game game) {
+
+            if (installedGames.contains(game)) {
+                return game.start();
             }
-        }
+
 
         return "Game not installed";
     }
